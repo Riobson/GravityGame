@@ -11,7 +11,12 @@ config_version=3
 [application]
 
 config/name="GravityGame"
+run/main_scene="res://RigidBody2D.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=800
 
 [rendering]
 
