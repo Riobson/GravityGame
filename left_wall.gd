@@ -9,5 +9,6 @@ func _ready():
 
 func _on_wall_area_entered( area ):
 	if area.get_name() == "banana":
+		print("banana")
 		area.direction.x = x_direction
 		area.direction.y = y_direction
