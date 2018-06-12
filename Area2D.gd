@@ -33,8 +33,11 @@ func _on_Player_area_entered(area):
 	if area.get_name() == "right_wall":
 		# assign new direction
 		rightWall = 0
-
-
+	if area.get_name() == "banana":
+		area.reset()
+		var lab = get_parent().get_node("HUD").get_node("ScoreLabel")
+		lab.set_text(str(int(lab.get_text()) + 1))
+		
 
 
 

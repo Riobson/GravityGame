@@ -3,6 +3,7 @@ extends Area2D
 var FRUIT_SPEED = 150;
 var direction = Vector2(-1, 1)
 var speed = FRUIT_SPEED
+var check = false
 
 var fruit_1 = preload("res://1.png")
 var fruit_2 = preload("res://2.png")
@@ -32,5 +33,6 @@ func reset():
 	direction = Vector2(randf()*2.0 - 1, 1)
 
 func _process(delta):
-	position += direction * speed * delta
+		if(check == true):
+			position += direction * speed * delta
 
