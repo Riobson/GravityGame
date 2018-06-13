@@ -11,32 +11,32 @@
 [ext_resource path="res://324923__lionhart151__exploration.wav" type="AudioStream" id=9]
 [ext_resource path="res://76376__deleted-user-877451__game-over.wav" type="AudioStream" id=10]
 
-[sub_resource type="StreamTexture" id=6]
+[sub_resource type="StreamTexture" id=1]
 
 flags = 4
 load_path = "res://.import/background.png-98289422cd7d93003950872a7b97021f.stex"
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 9.79423, 8.61648 )
 
-[sub_resource type="StreamTexture" id=2]
+[sub_resource type="StreamTexture" id=3]
 
 flags = 4
 load_path = "res://.import/banana.png-d29bf90df9b1d33a97e54c04dedff9e9.stex"
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 22.1483, 14.4819 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 200 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
 extents = Vector2( 320, 10 )
@@ -49,7 +49,7 @@ position = Vector2( 5.08154, -42.5804 )
 
 position = Vector2( 320.25, 203.257 )
 scale = Vector2( 0.410397, 0.456903 )
-texture = SubResource( 6 )
+texture = SubResource( 1 )
 
 [node name="Player" type="Area2D" parent="." index="1"]
 
@@ -74,7 +74,7 @@ texture = ExtResource( 2 )
 
 position = Vector2( -5.15443, -36.0755 )
 scale = Vector2( 6.39771, 0.738057 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="banana" type="Area2D" parent="." index="2"]
 
@@ -92,14 +92,14 @@ script = ExtResource( 3 )
 
 position = Vector2( 8.27893, -162.328 )
 scale = Vector2( 0.0792404, 0.0936709 )
-texture = SubResource( 2 )
+texture = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="collision" type="CollisionShape2D" parent="banana" index="1"]
 
 position = Vector2( 10.5587, -159.564 )
 scale = Vector2( 0.795328, 1.00636 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="left_wall" type="Area2D" parent="." index="3"]
 
@@ -121,7 +121,7 @@ y_direction = 1
 
 position = Vector2( -3.78252, 14.6707 )
 scale = Vector2( 1, 1.04831 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="right_wall" type="Area2D" parent="." index="4"]
 
@@ -144,7 +144,7 @@ y_direction = -1
 
 position = Vector2( 0.374939, 0.928833 )
 scale = Vector2( 1, 0.151026 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="ceiling" type="Area2D" parent="." index="5"]
 
@@ -162,7 +162,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="collision" type="CollisionShape2D" parent="ceiling" index="0"]
 
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="floor" type="Area2D" parent="." index="6"]
 
@@ -180,17 +180,9 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="collision" type="CollisionShape2D" parent="floor" index="0"]
 
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="HUD" parent="." index="7" instance=ExtResource( 7 )]
-
-[node name="ScoreLabel" parent="HUD" index="0"]
-
-visible = false
-
-[node name="MessageLabel" parent="HUD" index="1"]
-
-visible = false
 
 [node name="HIT" type="AudioStreamPlayer2D" parent="." index="8"]
 
