@@ -1,16 +1,20 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://demo.png" type="Texture" id=1]
-[ext_resource path="res://Area2D.gd" type="Script" id=2]
-[ext_resource path="res://truck.png" type="Texture" id=3]
-[ext_resource path="res://banana.gd" type="Script" id=4]
-[ext_resource path="res://left_wall.gd" type="Script" id=5]
-[ext_resource path="res://right_wall.gd" type="Script" id=6]
-[ext_resource path="res://ceiling_floor.gd" type="Script" id=7]
-[ext_resource path="res://HUD.tscn" type="PackedScene" id=8]
-[ext_resource path="res://hit.wav" type="AudioStream" id=9]
-[ext_resource path="res://324923__lionhart151__exploration.wav" type="AudioStream" id=10]
-[ext_resource path="res://76376__deleted-user-877451__game-over.wav" type="AudioStream" id=11]
+[ext_resource path="res://Area2D.gd" type="Script" id=1]
+[ext_resource path="res://truck.png" type="Texture" id=2]
+[ext_resource path="res://banana.gd" type="Script" id=3]
+[ext_resource path="res://left_wall.gd" type="Script" id=4]
+[ext_resource path="res://right_wall.gd" type="Script" id=5]
+[ext_resource path="res://ceiling_floor.gd" type="Script" id=6]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://hit.wav" type="AudioStream" id=8]
+[ext_resource path="res://324923__lionhart151__exploration.wav" type="AudioStream" id=9]
+[ext_resource path="res://76376__deleted-user-877451__game-over.wav" type="AudioStream" id=10]
+
+[sub_resource type="StreamTexture" id=6]
+
+flags = 4
+load_path = "res://.import/background.png-98289422cd7d93003950872a7b97021f.stex"
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -45,7 +49,7 @@ position = Vector2( 5.08154, -42.5804 )
 
 position = Vector2( 320.25, 203.257 )
 scale = Vector2( 0.410397, 0.456903 )
-texture = ExtResource( 1 )
+texture = SubResource( 6 )
 
 [node name="Player" type="Area2D" parent="." index="1"]
 
@@ -57,14 +61,14 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 ball_dir = 1
 
 [node name="Sprite" type="Sprite" parent="Player" index="0"]
 
 position = Vector2( -4.0563, -6.78815 )
 scale = Vector2( 0.0542192, 0.0759293 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" index="1"]
 
@@ -82,7 +86,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 4 )
+script = ExtResource( 3 )
 
 [node name="sprite" type="Sprite" parent="banana" index="0"]
 
@@ -108,7 +112,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 x_direction = 1
 y_direction = 1
@@ -131,7 +135,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 6 )
+script = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
 x_direction = -1
 y_direction = -1
@@ -153,7 +157,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 7 )
+script = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="collision" type="CollisionShape2D" parent="ceiling" index="0"]
@@ -171,14 +175,14 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 7 )
+script = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="collision" type="CollisionShape2D" parent="floor" index="0"]
 
 shape = SubResource( 5 )
 
-[node name="HUD" parent="." index="7" instance=ExtResource( 8 )]
+[node name="HUD" parent="." index="7" instance=ExtResource( 7 )]
 
 [node name="ScoreLabel" parent="HUD" index="0"]
 
@@ -190,7 +194,7 @@ visible = false
 
 [node name="HIT" type="AudioStreamPlayer2D" parent="." index="8"]
 
-stream = ExtResource( 9 )
+stream = ExtResource( 8 )
 volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
@@ -200,7 +204,7 @@ area_mask = 1
 
 [node name="Background" type="AudioStreamPlayer2D" parent="." index="9"]
 
-stream = ExtResource( 10 )
+stream = ExtResource( 9 )
 volume_db = 3.72
 autoplay = false
 max_distance = 2000.0
@@ -210,7 +214,7 @@ area_mask = 1
 
 [node name="game_over" type="AudioStreamPlayer2D" parent="." index="10"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
