@@ -8,6 +8,6 @@ func _ready():
 	y_direction = rand_range(0, 1)
 
 func _on_right_wall_area_entered(area):
-	if area.get_name() == "banana":
+	if area.get_name() == "gun" || area.get_name() == "granade":
 		area.direction.x = x_direction
 		area.direction.y = y_direction

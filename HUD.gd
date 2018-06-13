@@ -12,8 +12,10 @@ func show_game_over():
 	$MessageLabel.text = "Game Over"
 	$MessageLabel.show()
 	$StartButton.show()
-	var lab = get_parent().get_node("banana")
+	var lab = get_parent().get_node("gun")
 	lab.check = false
+	var lab2 = get_parent().get_node("granade")
+	lab2.check = false
 	get_parent().get_node("Background").stop()
 	get_parent().get_node("game_over").play()
 	
@@ -25,7 +27,7 @@ func _on_StartButton_pressed():
 	$StartButton.hide()
 	$MessageLabel.hide()
 	emit_signal("start_game")
-	var lab = get_parent().get_node("banana")
+	var lab = get_parent().get_node("gun")
 	lab.check = true
 	get_parent().get_node("Background").play()
 	get_parent().get_node("game_over").stop()
