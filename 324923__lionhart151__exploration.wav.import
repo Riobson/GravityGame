@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/324923__lionhart151__exploration.wav-f21e4137516c1efd5ee3dfc5644f14cc.sample"
+
+[deps]
+
+source_file="res://324923__lionhart151__exploration.wav"
+source_md5="ea0ea3c97149a88a78f1d4214fc98bd1"
+
+dest_files=[ "res://.import/324923__lionhart151__exploration.wav-f21e4137516c1efd5ee3dfc5644f14cc.sample" ]
+dest_md5="5df15a076b31f73c1a1eec4ddd7dc84d"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

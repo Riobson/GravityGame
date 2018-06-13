@@ -12,11 +12,11 @@ func _process(delta):
 	# move up and down based on input
 	if Input.is_action_pressed("MOVE_RIGHT") and rightWall == 1:
 		position.x += MOVE_SPEED * delta
-		get_node( "Sprite" ).set_flip_h( true )
+		
 
 	if Input.is_action_pressed("MOVE_LEFT") and leftWall == 1:
 		position.x -= MOVE_SPEED * delta
-		get_node( "Sprite" ).set_flip_h( false )
+	
 
 		
 
@@ -37,6 +37,7 @@ func _on_Player_area_entered(area):
 		area.reset()
 		var lab = get_parent().get_node("HUD").get_node("ScoreLabel")
 		lab.set_text(str(int(lab.get_text()) + 1))
+		get_parent().get_node("HIT").play()
 		
 
 

@@ -1,6 +1,9 @@
 extends CanvasLayer
 signal start_game
 
+
+var level = 1
+
 func show_message(text):
 	$MessageLabel.text = text
 	$MessageLabel.show()
@@ -11,7 +14,9 @@ func show_game_over():
 	$StartButton.show()
 	var lab = get_parent().get_node("banana")
 	lab.check = false
-
+	get_parent().get_node("Background").stop()
+	get_parent().get_node("game_over").play()
+	
 func update_score(score):
 	$ScoreLabel.text = str(score)
 
@@ -22,3 +27,5 @@ func _on_StartButton_pressed():
 	emit_signal("start_game")
 	var lab = get_parent().get_node("banana")
 	lab.check = true
+	get_parent().get_node("Background").play()
+	get_parent().get_node("game_over").stop()

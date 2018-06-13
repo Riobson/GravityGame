@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://demo.png" type="Texture" id=1]
 [ext_resource path="res://Area2D.gd" type="Script" id=2]
@@ -8,33 +8,38 @@
 [ext_resource path="res://right_wall.gd" type="Script" id=6]
 [ext_resource path="res://ceiling_floor.gd" type="Script" id=7]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=8]
+[ext_resource path="res://hit.wav" type="AudioStream" id=9]
+[ext_resource path="res://324923__lionhart151__exploration.wav" type="AudioStream" id=10]
+[ext_resource path="res://76376__deleted-user-877451__game-over.wav" type="AudioStream" id=11]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+extents = Vector2( 9.79423, 8.61648 )
 
-[sub_resource type="StreamTexture" id=1]
+[sub_resource type="StreamTexture" id=2]
 
 flags = 4
 load_path = "res://.import/banana.png-d29bf90df9b1d33a97e54c04dedff9e9.stex"
 
-[sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
-extents = Vector2( 33.7872, 30.6934 )
-
 [sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 200 )
+extents = Vector2( 22.1483, 14.4819 )
 
 [sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
+extents = Vector2( 10, 200 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
 extents = Vector2( 320, 10 )
 
-[node name="game" type="Node2D"]
+[node name="game" type="Node2D" index="0"]
+
+position = Vector2( 5.08154, -42.5804 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -44,7 +49,6 @@ texture = ExtResource( 1 )
 
 [node name="Player" type="Area2D" parent="." index="1"]
 
-editor/display_folded = true
 position = Vector2( 341.311, 340.083 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -64,13 +68,12 @@ texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" index="1"]
 
-position = Vector2( -3.6474, -9.79321 )
-scale = Vector2( 6.43182, 3.79968 )
-shape = SubResource( 5 )
+position = Vector2( -5.15443, -36.0755 )
+scale = Vector2( 6.39771, 0.738057 )
+shape = SubResource( 1 )
 
 [node name="banana" type="Area2D" parent="." index="2"]
 
-editor/display_folded = true
 position = Vector2( 320.5, 191.124 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -85,17 +88,18 @@ script = ExtResource( 4 )
 
 position = Vector2( 8.27893, -162.328 )
 scale = Vector2( 0.0792404, 0.0936709 )
-texture = SubResource( 1 )
+texture = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="collision" type="CollisionShape2D" parent="banana" index="1"]
 
 position = Vector2( 10.5587, -159.564 )
 scale = Vector2( 0.795328, 1.00636 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="left_wall" type="Area2D" parent="." index="3"]
 
+editor/display_folded = true
 position = Vector2( -10, 197 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -113,10 +117,11 @@ y_direction = 1
 
 position = Vector2( -3.78252, 14.6707 )
 scale = Vector2( 1, 1.04831 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="right_wall" type="Area2D" parent="." index="4"]
 
+editor/display_folded = true
 position = Vector2( 650.112, 203.805 )
 scale = Vector2( 1, 6.88689 )
 input_pickable = true
@@ -135,7 +140,7 @@ y_direction = -1
 
 position = Vector2( 0.374939, 0.928833 )
 scale = Vector2( 1, 0.151026 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="ceiling" type="Area2D" parent="." index="5"]
 
@@ -153,10 +158,11 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="collision" type="CollisionShape2D" parent="ceiling" index="0"]
 
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="floor" type="Area2D" parent="." index="6"]
 
+editor/display_folded = true
 position = Vector2( 320, 410 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -170,9 +176,47 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="collision" type="CollisionShape2D" parent="floor" index="0"]
 
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="HUD" parent="." index="7" instance=ExtResource( 8 )]
+
+[node name="ScoreLabel" parent="HUD" index="0"]
+
+visible = false
+
+[node name="MessageLabel" parent="HUD" index="1"]
+
+visible = false
+
+[node name="HIT" type="AudioStreamPlayer2D" parent="." index="8"]
+
+stream = ExtResource( 9 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Background" type="AudioStreamPlayer2D" parent="." index="9"]
+
+stream = ExtResource( 10 )
+volume_db = 3.72
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="game_over" type="AudioStreamPlayer2D" parent="." index="10"]
+
+stream = ExtResource( 11 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 [connection signal="area_entered" from="Player" to="Player" method="_on_Player_area_entered"]
 
@@ -187,3 +231,4 @@ shape = SubResource( 4 )
 [connection signal="area_entered" from="floor" to="floor" method="_on_area_entered"]
 
 
+[editable path="HUD"]
