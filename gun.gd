@@ -49,6 +49,8 @@ func reset():
 		var lab = get_parent().get_node("granade")
 		lab.check = true
 		lab.position = lab.initial_pos
+		lab.GUN_SPEED = GUN_SPEED
+		lab.speed = GUN_SPEED
 		check = false
 
 

@@ -246,14 +246,14 @@ script = ExtResource( 11 )
 
 [node name="Sprite" type="Sprite" parent="granade" index="0"]
 
-position = Vector2( 331.271, -65.4036 )
-scale = Vector2( 0.13395, 0.11321 )
+position = Vector2( 331.271, -36.7495 )
+scale = Vector2( 0.13395, 0.104943 )
 texture = ExtResource( 12 )
 
 [node name="colision" type="CollisionShape2D" parent="granade" index="1"]
 
-position = Vector2( 329.939, -65.0557 )
-scale = Vector2( 0.763367, 3.80662 )
+position = Vector2( 329.939, -38.9831 )
+scale = Vector2( 0.763367, 3.55866 )
 shape = SubResource( 7 )
 
 [connection signal="area_entered" from="Player" to="Player" method="_on_Player_area_entered"]
