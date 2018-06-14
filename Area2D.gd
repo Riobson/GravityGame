@@ -3,8 +3,9 @@ export var ball_dir = 1
 
 const MOVE_SPEED = 400
 
-var leftWall = 1
-var rightWall  =1;
+var leftWall = 0
+var rightWall  =0;
+var initial_pos = self.position
 
 func _process(delta):
 	var which = get_name()
@@ -21,7 +22,8 @@ func _process(delta):
 		
 
 	
-
+func reset():
+	position = initial_pos
 
 
 
