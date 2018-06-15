@@ -4,14 +4,12 @@ signal start_game
 
 var level = 1
 
-
-
 func show_message(text):
 	$MessageLabel.text = text
 	$MessageLabel.show()
 
 func show_game_over():
-	$MessageLabel.text = "Game Over"
+	$MessageLabel.text = "Looser!"
 	$MessageLabel.show()
 	$StartButton.show()
 	var lab = get_parent().get_node("gun")
@@ -24,6 +22,7 @@ func show_game_over():
 	player.leftWall = 0
 	player.rightWall = 0
 	player.reset()
+	
 func update_score(score):
 	$ScoreLabel.text = str(score)
 
@@ -31,6 +30,7 @@ func _on_StartButton_pressed():
 	get_node("ScoreLabel").set_text("0")
 	$StartButton.hide()
 	$MessageLabel.hide()
+	$ScoreLabel.show()
 	emit_signal("start_game")
 	var lab = get_parent().get_node("gun")
 	lab.check = true

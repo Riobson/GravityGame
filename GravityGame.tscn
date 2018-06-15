@@ -50,7 +50,7 @@ extents = Vector2( 19.2759, 3.89999 )
 
 [node name="game" type="Node2D" index="0"]
 
-position = Vector2( 5.08154, -42.5804 )
+position = Vector2( 4.13153, -20.7304 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -207,6 +207,7 @@ visible = false
 
 stream = ExtResource( 8 )
 volume_db = 0.0
+pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -217,6 +218,7 @@ area_mask = 1
 
 stream = ExtResource( 9 )
 volume_db = 3.72
+pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -227,6 +229,7 @@ area_mask = 1
 
 stream = ExtResource( 10 )
 volume_db = 0.0
+pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
