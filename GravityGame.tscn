@@ -86,6 +86,7 @@ shape = SubResource( 2 )
 
 [node name="gun" type="Area2D" parent="." index="2"]
 
+editor/display_folded = true
 position = Vector2( 320.5, 191.124 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )

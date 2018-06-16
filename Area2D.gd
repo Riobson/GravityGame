@@ -13,10 +13,12 @@ func _process(delta):
 	# move up and down based on input
 	if Input.is_action_pressed("MOVE_RIGHT") and rightWall == 1:
 		position.x += MOVE_SPEED * delta
+		get_node("Sprite").flip_h = true
 		
 
 	if Input.is_action_pressed("MOVE_LEFT") and leftWall == 1:
 		position.x -= MOVE_SPEED * delta
+		get_node("Sprite").flip_h = false
 	
 
 		
