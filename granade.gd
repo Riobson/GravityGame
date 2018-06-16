@@ -12,7 +12,7 @@ func _ready():
 	randomize()
 
 func reset():
-	position = initial_pos					
+	position = initial_pos
 	if(GUN_SPEED < 500):
 		GUN_SPEED += 3;
 	speed = GUN_SPEED
@@ -21,4 +21,3 @@ func reset():
 func _process(delta):
 		if(check == true):
 			position += direction * speed * delta
-

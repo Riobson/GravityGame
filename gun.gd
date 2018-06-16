@@ -53,7 +53,6 @@ func reset():
 		lab.speed = GUN_SPEED
 		check = false
 
-
 func _process(delta):
 		if(check == true):
 			position += direction * speed * delta

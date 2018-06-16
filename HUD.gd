@@ -21,12 +21,15 @@ func show_game_over():
 	var player = get_parent().get_node("Player")
 	player.leftWall = 0
 	player.rightWall = 0
-	player.reset()
 	
+
 func update_score(score):
 	$ScoreLabel.text = str(score)
 
 func _on_StartButton_pressed():
+	
+	var player = get_parent().get_node("Player")
+	player.reset()
 	get_node("ScoreLabel").set_text("0")
 	$StartButton.hide()
 	$MessageLabel.hide()
@@ -36,6 +39,6 @@ func _on_StartButton_pressed():
 	lab.check = true
 	get_parent().get_node("Background").play()
 	get_parent().get_node("game_over").stop()
-	var player = get_parent().get_node("Player")
+
 	player.leftWall = 1
 	player.rightWall = 1

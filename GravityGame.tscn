@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Area2D.gd" type="Script" id=1]
 [ext_resource path="res://truck.png" type="Texture" id=2]
@@ -22,6 +22,46 @@ load_path = "res://.import/background.png-98289422cd7d93003950872a7b97021f.stex"
 
 custom_solver_bias = 0.0
 extents = Vector2( 9.79423, 8.61648 )
+
+[sub_resource type="ParticlesMaterial" id=8]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 1
+emission_sphere_radius = 1.04
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 180.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 10.33
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 2.0
+scale_random = 0.0
+color = Color( 0.996094, 0.373535, 0, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Emission Shape", "Gravity", "Initial Velocity", "Scale", "Spread", "Trail" ]
 
 [sub_resource type="StreamTexture" id=3]
 
@@ -50,7 +90,7 @@ extents = Vector2( 19.2759, 3.89999 )
 
 [node name="game" type="Node2D" index="0"]
 
-position = Vector2( 4.13153, -20.7304 )
+position = Vector2( 2.13153, 1.26959 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -60,7 +100,6 @@ texture = SubResource( 1 )
 
 [node name="Player" type="Area2D" parent="." index="1"]
 
-editor/display_folded = true
 position = Vector2( 341.311, 340.083 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -83,6 +122,28 @@ texture = ExtResource( 2 )
 position = Vector2( -5.15443, -36.0755 )
 scale = Vector2( 6.39771, 0.738057 )
 shape = SubResource( 2 )
+
+[node name="Particles2D" type="Particles2D" parent="Player" index="2"]
+
+emitting = false
+amount = 1200
+lifetime = 8.0
+one_shot = true
+preprocess = 0.0
+speed_scale = 5.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 8 )
+texture = null
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Material", "Process Material" ]
 
 [node name="gun" type="Area2D" parent="." index="2"]
 
@@ -113,7 +174,6 @@ shape = SubResource( 4 )
 
 [node name="left_wall" type="Area2D" parent="." index="3"]
 
-editor/display_folded = true
 position = Vector2( -10, 197 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -129,13 +189,12 @@ y_direction = 1
 
 [node name="collision" type="CollisionShape2D" parent="left_wall" index="0"]
 
-position = Vector2( -3.78252, 14.6707 )
+position = Vector2( -2.78252, 14.6707 )
 scale = Vector2( 1, 1.04831 )
 shape = SubResource( 5 )
 
 [node name="right_wall" type="Area2D" parent="." index="4"]
 
-editor/display_folded = true
 position = Vector2( 650.112, 203.805 )
 scale = Vector2( 1, 6.88689 )
 input_pickable = true
@@ -152,7 +211,7 @@ y_direction = -1
 
 [node name="collision" type="CollisionShape2D" parent="right_wall" index="0"]
 
-position = Vector2( 0.374939, 0.928833 )
+position = Vector2( -1.62506, 0.928833 )
 scale = Vector2( 1, 0.151026 )
 shape = SubResource( 5 )
 
